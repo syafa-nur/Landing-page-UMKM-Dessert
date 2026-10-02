@@ -1,0 +1,430 @@
+/* ===== Palet & override variabel Bootstrap ===== */
+:root {
+  --cream: #f5efe7;
+  --cocoa: #5a4038;
+  --rose: #b98786;
+  --sage: #a7a995;
+  --deep: #302522;
+  --soft: #fffdf9;
+  --ink-2: #6b5b54;
+  --blush: #efe3dc;
+  --line: rgba(90, 64, 56, 0.14);
+
+  --bs-body-bg: #fffdf9;
+  --bs-body-bg-rgb: 255, 253, 249;
+  --bs-body-color: #302522;
+  --bs-body-color-rgb: 48, 37, 34;
+  --bs-body-font-family: "DM Sans", sans-serif;
+  --bs-secondary-color: #6b5b54;
+  --bs-border-color: rgba(90, 64, 56, 0.14);
+  --bs-link-color: #5a4038;
+  --bs-link-hover-color: #302522;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+h1,
+h2,
+h3,
+.wordmark,
+.font-display {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+}
+:focus-visible {
+  outline: 2px solid var(--cocoa);
+  outline-offset: 3px;
+}
+.hero :focus-visible,
+.cta-band :focus-visible,
+footer :focus-visible,
+.navbar:not(.scrolled) :focus-visible {
+  outline-color: #fff;
+}
+
+/* Utility warna brand (Bootstrap tidak punya) */
+.bg-cream { background-color: var(--cream) !important; }
+.bg-blush { background-color: var(--blush) !important; }
+.bg-deep { background-color: var(--deep) !important; }
+.text-cocoa { color: var(--cocoa) !important; }
+
+/* ===== Tombol: cukup ubah variabel .btn Bootstrap ===== */
+.btn {
+  --bs-btn-border-radius: 3px;
+  --bs-btn-font-weight: 500;
+}
+.btn-nav {
+  --bs-btn-padding-x: 1rem;
+  --bs-btn-padding-y: 0.45rem;
+  --bs-btn-font-size: 0.9rem;
+}
+.btn-cream {
+  --bs-btn-padding-x: 2rem;
+  --bs-btn-padding-y: 0.85rem;
+  --bs-btn-color: var(--deep);
+  --bs-btn-bg: var(--soft);
+  --bs-btn-border-color: var(--soft);
+  --bs-btn-hover-color: var(--deep);
+  --bs-btn-hover-bg: var(--cream);
+  --bs-btn-hover-border-color: var(--cream);
+  --bs-btn-active-color: var(--deep);
+  --bs-btn-active-bg: var(--cream);
+  --bs-btn-active-border-color: var(--cream);
+  letter-spacing: 0.02em;
+}
+.btn-order {
+  --bs-btn-padding-x: 1.1rem;
+  --bs-btn-padding-y: 0.4rem;
+  --bs-btn-font-size: 0.9rem;
+  --bs-btn-color: var(--cocoa);
+  --bs-btn-border-color: var(--cocoa);
+  --bs-btn-hover-color: var(--soft);
+  --bs-btn-hover-bg: var(--cocoa);
+  --bs-btn-hover-border-color: var(--cocoa);
+  --bs-btn-active-color: var(--soft);
+  --bs-btn-active-bg: var(--cocoa);
+  --bs-btn-active-border-color: var(--cocoa);
+  white-space: nowrap;
+}
+
+/* ===== Navbar (warna teks diatur data-bs-theme lewat JS) ===== */
+.navbar {
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s, border-color 0.3s;
+}
+.navbar.scrolled {
+  background: var(--soft);
+  border-bottom-color: var(--line);
+}
+.wordmark {
+  font-size: 1.7rem;
+}
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    --bs-navbar-color: var(--ink-2);
+    --bs-navbar-hover-color: var(--deep);
+    margin-top: 0.6rem;
+    padding: 1rem;
+    background: var(--soft);
+    border: 1px solid var(--line);
+  }
+  .navbar-collapse .btn-nav {
+    --bs-btn-color: var(--deep);
+    --bs-btn-border-color: var(--deep);
+    --bs-btn-hover-color: var(--soft);
+    --bs-btn-hover-bg: var(--deep);
+    --bs-btn-hover-border-color: var(--deep);
+    margin-top: 0.5rem;
+  }
+}
+
+/* ===== Hero ===== */
+.hero {
+  height: 100svh;
+  min-height: 560px;
+}
+.hero-img {
+  object-position: center 55%;
+}
+.hero-shade {
+  background: linear-gradient(to top, rgba(48, 37, 34, 0.72) 0%, rgba(48, 37, 34, 0.25) 55%, rgba(48, 37, 34, 0.38) 100%);
+}
+.hero-content {
+  padding-bottom: clamp(3rem, 10vh, 6rem);
+}
+.hero h1 {
+  max-width: 14ch;
+  margin-bottom: 1rem;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  line-height: 1;
+  text-wrap: balance;
+}
+.hero-sub {
+  max-width: 30rem;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===== Ritme section ===== */
+.section {
+  padding: clamp(3.5rem, 6vw, 5.75rem) 0;
+}
+.section-title {
+  margin-bottom: 0.65rem;
+  font-size: clamp(2.15rem, 4vw, 3.2rem);
+  line-height: 1.05;
+}
+.eyebrow {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: var(--cocoa);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* ===== Pencarian menu (input-group Bootstrap) ===== */
+.search-box {
+  --bs-border-radius: 3px;
+}
+.search-box .input-group-text,
+.search-box .form-control {
+  background: var(--soft);
+  border-color: var(--line);
+  color: var(--ink-2);
+}
+.search-box .form-control {
+  color: var(--deep);
+}
+.search-box .form-control:focus {
+  box-shadow: none;
+}
+.search-box:focus-within .input-group-text,
+.search-box:focus-within .form-control {
+  border-color: var(--cocoa);
+}
+.menu-empty a {
+  color: var(--cocoa);
+  font-weight: 500;
+  text-underline-offset: 3px;
+}
+
+/* ===== Menu / kartu produk (.card Bootstrap) ===== */
+.cat-title {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  color: var(--cocoa);
+  border-color: var(--sage) !important;
+}
+.product {
+  --bs-card-bg: transparent;
+  --bs-card-border-width: 0;
+  --bs-card-border-radius: 0;
+}
+.product-img {
+  overflow: hidden;
+  background: #e9dfd3;
+}
+.ratio-4x5 {
+  --bs-aspect-ratio: 125%;
+}
+.product-img img {
+  transition: transform 0.8s ease;
+}
+.product:hover .product-img img {
+  transform: scale(1.035);
+}
+.badge-note {
+  color: var(--cocoa);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+}
+.product h3 {
+  font-size: clamp(1.55rem, 2.2vw, 1.9rem);
+  line-height: 1.05;
+}
+.price {
+  font: 600 1.35rem "Cormorant Garamond", serif;
+}
+.price.ask {
+  font: 500 0.88rem "DM Sans", sans-serif;
+  color: var(--ink-2);
+}
+@media (min-width: 576px) {
+  .product-foot {
+    border-top: 1px solid var(--line);
+  }
+}
+@media (max-width: 575.98px) {
+  .product {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .row > div:last-child > .product {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+  .product-img {
+    flex: 0 0 104px;
+    width: 104px;
+    border-radius: 3px;
+    align-self: flex-start;
+  }
+  .product-img .ratio {
+    --bs-aspect-ratio: 100%;
+  }
+  .product .card-body {
+    min-width: 0;
+  }
+  .product h3 {
+    font-size: 1.35rem;
+  }
+  .product .card-text {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    font-size: 0.82rem;
+  }
+  .price {
+    font-size: 1.2rem;
+  }
+}
+
+/* ===== Tentang ===== */
+.about-img {
+  max-height: 34rem;
+  aspect-ratio: 4 / 5;
+  object-position: center 45%;
+  background: var(--blush);
+}
+.about-text > * {
+  max-width: 34rem;
+}
+.about-text p {
+  color: var(--cocoa);
+  line-height: 1.7;
+}
+@media (max-width: 767.98px) {
+  .about-img {
+    aspect-ratio: 4 / 3;
+    max-height: 20rem;
+  }
+}
+
+/* ===== Keunggulan ===== */
+.feature-image {
+  aspect-ratio: 4 / 3;
+  background: var(--blush);
+}
+#benefits > div:nth-child(1) .feature-image { object-position: center 14%; }
+#benefits > div:nth-child(2) .feature-image { object-position: center 38%; }
+#benefits > div:nth-child(3) .feature-image { object-position: center 62%; }
+#benefits > div:nth-child(4) .feature-image { object-position: center 86%; }
+.feature h3 {
+  font-size: 22px;
+  line-height: 1.15;
+}
+@media (max-width: 575.98px) {
+  .feature-image { aspect-ratio: 1 / 1; }
+  .feature h3 { font-size: 1.15rem; }
+}
+
+/* ===== Testimoni (nav-underline Bootstrap sebagai tab) ===== */
+.testimonial-quote {
+  min-height: 4.5em;
+  font: italic 500 36px/1.3 "Cormorant Garamond", serif;
+}
+.testimonial-author {
+  margin-top: 1.1rem;
+  color: var(--cocoa);
+}
+.testimonial-quote,
+.testimonial-author {
+  transition: opacity 0.14s ease, transform 0.14s ease;
+}
+.is-changing .testimonial-quote,
+.is-changing .testimonial-author {
+  opacity: 0;
+  transform: translateY(6px);
+}
+.testimonial-tabs {
+  --bs-nav-link-color: var(--ink-2);
+  --bs-nav-link-hover-color: var(--cocoa);
+  --bs-nav-underline-link-active-color: var(--cocoa);
+  --bs-nav-link-font-size: 0.875rem;
+}
+.nav-underline .testimonial-tab.active {
+  font-weight: 400;
+  border-bottom-color: var(--rose);
+}
+@media (max-width: 767.98px) {
+  .testimonial-quote { font-size: 26px; }
+}
+
+/* ===== FAQ (accordion Bootstrap) ===== */
+.faq-intro {
+  top: 6rem;
+}
+.faq-intro h2 {
+  max-width: 12ch;
+}
+.accordion {
+  --bs-accordion-bg: transparent;
+  --bs-accordion-active-bg: transparent;
+  --bs-accordion-color: var(--ink-2);
+  --bs-accordion-btn-color: var(--deep);
+  --bs-accordion-active-color: var(--cocoa);
+  --bs-accordion-border-width: 0;
+  --bs-accordion-border-radius: 0;
+  --bs-accordion-inner-border-radius: 0;
+  --bs-accordion-btn-padding-x: 0;
+  --bs-accordion-btn-padding-y: 1.25rem;
+  --bs-accordion-body-padding-x: 0;
+  --bs-accordion-btn-focus-box-shadow: none;
+}
+.accordion-button {
+  gap: 1rem;
+  font: 500 1.35rem/1.2 "Cormorant Garamond", serif;
+}
+.accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+.accordion-body {
+  padding-right: 2rem;
+  font-size: 0.92rem;
+}
+
+/* ===== CTA, footer, tombol WA ===== */
+.cta-band {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(4rem, 7vw, 6rem) 0;
+  background: url("images/hero-mochi.jpg") center 52% / cover no-repeat;
+}
+.cta-band::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  background: rgba(48, 37, 34, 0.72);
+}
+.cta-band .eyebrow { color: #d7b9b2; }
+.cta-band h2 {
+  color: var(--cream);
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+}
+.cta-band p { color: rgba(245, 239, 231, 0.88); }
+.wa-float {
+  width: 54px;
+  height: 54px;
+  background: var(--cocoa);
+}
+@media (max-width: 575.98px) {
+  .wa-float { width: 48px; height: 48px; }
+}
+
+/* ===== Animasi ===== */
+.reveal {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.reveal.in {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transition: none; }
+}
