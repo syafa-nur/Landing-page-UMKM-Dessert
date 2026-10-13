@@ -1,5 +1,5 @@
 // Naikkan angka versi ini setiap kali kamu mengganti foto/kode agar cache lama dibuang.
-const VERSION = "cwhee-v4";
+const VERSION = "cwhee-v5";
 
 const CORE = [
   "./",
