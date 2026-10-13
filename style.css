@@ -412,6 +412,22 @@ footer :focus-visible,
   .wa-float { width: 48px; height: 48px; }
 }
 
+/* ===== Footer ===== */
+footer p {
+  color: rgba(255, 255, 255, 0.75);
+}
+footer .wordmark + p {
+  margin-top: 0.25rem !important; /* deskripsi lebih dekat ke merk */
+}
+@media (max-width: 767.98px) {
+  footer .row {
+    --bs-gutter-y: 0.9rem; /* jarak antar bagian di HP */
+  }
+  footer p {
+    margin-bottom: 0;
+  }
+}
+
 /* ===== Animasi ===== */
 .reveal {
   opacity: 0;

@@ -1,5 +1,5 @@
 // Naikkan angka versi ini setiap kali kamu mengganti foto/kode agar cache lama dibuang.
-const VERSION = "cwhee-v3";
+const VERSION = "cwhee-v4";
 
 const CORE = [
   "./",
@@ -47,6 +47,7 @@ self.addEventListener("fetch", event => {
   const req = event.request;
   if (req.method !== "GET" || !req.url.startsWith("http")) return;
   if (req.url.includes("wa.me")) return;
+  if (req.url.endsWith(".mp4")) return; // video dikirim sebagian (206), tidak bisa di-cache
   event.respondWith(
     fetch(req)
       .then(res => {

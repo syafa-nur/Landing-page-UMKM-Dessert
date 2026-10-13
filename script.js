@@ -1,10 +1,10 @@
 const IMG_DIR = "images/";
 const SITE = {
-  wa: { number: "6287824066269" }, 
+  wa: { number: "6287824066269" },
   benefits: [
     {
       i: "kenyal",
-      img: "kenyal.jpg",
+      video: "kenyal.mp4",
       t: "Mochi Kenyal dan lembut",
       d: "Dibuat pagi hari, tetap empuk sampai diterima.",
     },
@@ -125,7 +125,7 @@ const SITE = {
   ],
   footer: {
     about: "Mochi homemade dengan sentuhan dessert cafe Jepang-Indonesia.",
-    hours: "Senin-Sabtu, 06.00-14.00 WIB",
+    hours: "Senin-Sabtu, 09.00-18.00 WIB",
     social: [
       { n: "Instagram @cwheeandco", u: "https://www.instagram.com/jeena.fa?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" },
       { n: "TikTok @cwheeandco", u: "https://www.tiktok.com/@cwheeandco" },
@@ -133,7 +133,7 @@ const SITE = {
   },
 };
 
-const PRAY = "\u{1F64F}"; 
+const PRAY = "\u{1F64F}";
 const rp = (n) => "Rp" + n.toLocaleString("id-ID");
 const $ = (id) => document.getElementById(id);
 const esc = (t) =>
@@ -143,7 +143,6 @@ const esc = (t) =>
   );
 const waLink = (msg) => `https://wa.me/${SITE.wa.number}?text=${encodeURIComponent(msg)}`;
 
-
 const safe = (name, fn) => {
   try {
     fn();
@@ -151,7 +150,6 @@ const safe = (name, fn) => {
     console.error(`[${name}]`, err);
   }
 };
-
 
 const FORM_LINES = [
   "*Nama:* ",
@@ -186,6 +184,7 @@ function generalMessage() {
     "Mohon dikonfirmasi ya. Terima kasih!",
   ].join("\n");
 }
+
 function product(f) {
   const tag = f.tag || (f.best ? "Paling laris" : "");
   return `<div class="col-12 col-sm-6 col-lg-4 reveal in"><article class="card product h-100 flex-row flex-sm-column gap-3 gap-sm-0">
@@ -225,11 +224,19 @@ function renderMenu(query = "") {
     : "";
 }
 
+// Pilih tag media: video kalau item punya "video", selain itu gambar
+function benefitMedia(b) {
+  if (b.video) {
+    return `<video class="feature-image d-block w-100 rounded object-fit-cover mb-3" src="${IMG_DIR}${encodeURI(b.video)}" autoplay muted loop playsinline aria-hidden="true"></video>`;
+  }
+  return `<img class="feature-image d-block w-100 rounded object-fit-cover mb-3" src="${IMG_DIR}${encodeURI(b.img)}" alt="" aria-hidden="true" loading="lazy" onerror="this.onerror=null;this.style.visibility='hidden'">`;
+}
+
 function renderBenefits() {
   $("benefits").innerHTML = SITE.benefits
     .map(
       (b) =>
-        `<div class="col-6 col-lg-3 reveal in"><article class="feature h-100"><img class="feature-image d-block w-100 rounded object-fit-cover mb-3" src="${IMG_DIR}${encodeURI(b.img)}" alt="" aria-hidden="true" loading="lazy" onerror="this.onerror=null;this.style.visibility='hidden'"><h3 class="mb-1">${b.t}</h3><p class="small mb-0 text-body-secondary">${b.d}</p></article></div>`,
+        `<div class="col-6 col-lg-3 reveal in"><article class="feature h-100">${benefitMedia(b)}<h3 class="mb-1">${b.t}</h3><p class="small mb-0 text-body-secondary">${b.d}</p></article></div>`,
     )
     .join("");
 }
